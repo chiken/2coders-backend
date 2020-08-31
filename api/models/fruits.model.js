@@ -6,9 +6,13 @@ const fruitSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  img: {
+    type: String,
+    require: true
+  },
   size: {
     type: String,
-    enum: ['Small', 'Mediun', 'Big'],
+    enum: ['Pequeño', 'Mediano', 'Grande'],
     require: true
   },
   color: {
