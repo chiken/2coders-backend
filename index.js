@@ -36,3 +36,5 @@ app.listen(PORT, (err) => {
   console.info(`📡  PORT: http://localhost:${PORT}`)
   console.info('>'.repeat(40) + '\n')
 })
+
+module.exports = app
