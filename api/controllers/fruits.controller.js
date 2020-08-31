@@ -14,8 +14,30 @@ function getFruits (req, res) {
     .catch(err => console.log(err))
 }
 
+function getfruitById(req, res) {
+  const _id = req.params.id
+
+  FruitSchema.find({_id})
+    .then(response => {
+      res.json(response)
+    })
+    .catch(err => console.log(err))
+}
+
 function addFruit (req, res) {
   FruitSchema.create(req.body)
+    .then(response => {
+      res.json(response)
+    })
+    .catch(err => console.log(err))
+}
+
+function updateFruit(req, res){
+  const filter = { _id: req.params.id }
+  const update = { $set: req.body }
+  const options = { new: true }
+
+  FruitSchema.findByIdAndUpdate(filter, update, options)
     .then(response => {
       res.json(response)
     })
@@ -35,5 +57,7 @@ function deleteFruit (req, res) {
 module.exports = {
   getFruits,
   addFruit,
-  deleteFruit
+  deleteFruit,
+  getfruitById,
+  updateFruit
 }
