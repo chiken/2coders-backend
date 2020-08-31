@@ -3,6 +3,7 @@
 ## Project setup
 ```
 npm install
+cp .env.example .env
 ```
 
 ### Compiles and run the aplication
